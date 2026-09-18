@@ -37,6 +37,8 @@
 
 /*lora font */
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+/* line seed jp font */
+@import url("https://fonts.googleapis.com/css2?family=LINE+Seed+JP&display=swap");
 /*
 
 /* 
@@ -101,7 +103,7 @@
 
 :root {
   /* Typography */
-  --font-family-body: "Lora", serif;
+  --font-family-body: "LINE seed JP", serif;
   --font-family-heading: "Lora", serif;
   --font-family-project-title: "Lora", serif;
   /* Core Colours */
@@ -130,7 +132,7 @@
   --color-text-project-description: #222;
   --color-text-project-sidebar: #222;
   --color-text-project-title: #5200ff;
-  --color-text-work-grid-title: #ffffff;
+  --color-text-work-grid-title: #060404;
   /* Link States */
   --color-link: #5200ff;
   --color-link-hover: #111;
@@ -145,7 +147,7 @@
   /* Components */
   --color-bg-full-width: #f5f5f5;
   --color-bg-project-description: #f5f5f5;
-  --color-bg-sidebar-project: orangered;
+  --color-bg-sidebar-project: rgb(193, 190, 190);
   --color-bg-sidebar-work: lemonchiffon;
   --color-gradient-hero: linear-gradient(90deg, #ff00ff, #00ffff);
   --color-gradient-project-details: linear-gradient(
@@ -285,12 +287,6 @@ svg {
 .width-third,
 .width-two-thirds {
   width: 100%;
-}
-
-/* Adds a dashed border to help you see the box while you're designing */
-.border {
-  border: 1px dashed var(--color-accent-primary); /* This uses your custom accent color */
-  /* TODO: Delete this later – it’s just here to help you see the box while you work */
 }
 
 /* ---------------------- */
@@ -542,8 +538,6 @@ sup {
 .project-description {
   font-size: 1.225rem;
   line-height: 1.2;
-  color: var(--color-text-project-description);
-  margin-bottom: 1rem;
 }
 
 /* 🧱 Full-width headings — useful in layouts that span edge-to-edge */
@@ -567,7 +561,7 @@ sup {
 
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
-  font-size: 2.875rem;
+  font-size: 2rem;
   color: var(--color-text-work-grid-title);
   text-wrap: balance;
 }
@@ -596,7 +590,7 @@ sup {
 /* Unvisited link */
 a:link {
   color: var(--color-link);
-  text-decoration: none; /* Removes underline */
+  text-decoration: none;
 }
 
 /* Visited link — after a user clicks and returns */
@@ -695,13 +689,10 @@ a.nav-link-primary:hover {
   display: flex;
   flex-direction: column;
 }
-.hero-header {
-  min-height: 6rem; /* Space reserved for logo + nav */
-}
 
 .nav-branding {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   padding: var(--padding-small);
   align-items: center;
@@ -717,7 +708,6 @@ a.nav-link-primary:hover {
 
 .nav-branding-logo {
   width: 3rem;
-  /* TODO: Adjust the width of the logo on mobile devices here */
 }
 
 .hero-headline-wrapper {
@@ -836,10 +826,22 @@ a.nav-link-primary:hover {
 
 /* Work Sidebar on Mobile */
 .work-sidebar {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  background: var(
-    --color-bg-sidebar-work
-  ); /* Background color for the sidebar */
+  background: transparent; /* Background color for the sidebar */
+}
+
+.work-links {
+  flex: 1;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-tiny);
+}
+.work-links a {
+  width: 3rem;
+  margin-right: 1rem;
 }
 
 /* Main Work Area with Sidebar on Mobile */
@@ -864,6 +866,7 @@ a.nav-link-primary:hover {
   width: 100%;
   height: auto;
   position: relative; /* Needed to position the overlay */
+  border: 2px solid black;
 }
 /* Masonry Overlay Text */
 .overlay-container:hover .overlay {
@@ -872,8 +875,8 @@ a.nav-link-primary:hover {
 
 /* Project container for background and padding */
 .project-container {
-  background: var(--color-accent-primary); /* Set project background color */
-  padding: var(--padding-medium);
+  background: var(--color-bg); /* Set project background color */
+  /* padding: var(--padding-medium); */
 }
 
 /* Overlay (appears on hover) */
@@ -907,7 +910,8 @@ a.nav-link-primary:hover {
 }
 
 /* Optional container for future overlay customization */
-.project-details-overlay {
+.project-details {
+  padding: var(--padding-small);
   /* Placeholder: no custom styles yet */
 }
 
@@ -930,11 +934,14 @@ a.nav-link-primary:hover {
 
 /* Sidebar navigation list styles */
 .sidebar-nav-list {
-  padding: var(--padding-small); /* Adds padding around the navigation list */
+  padding: var(--padding-tiny); /* Adds padding around the navigation list */
 }
 
 /* Individual navigation item styles */
 .sidebar-nav-item {
+  padding: var(--padding-small);
+  background-color: var(--color-bg);
+  border: 2px solid black;
   margin-bottom: 1rem; /* Space between each navigation item */
 }
 
@@ -1142,11 +1149,17 @@ a.nav-link-primary:hover {
 /* Sidebar Styles */
 .project-aside {
   width: 100%;
-  padding: var(--padding-small);
   display: flex;
   flex-direction: column;
   color: var(--color-text-project-sidebar);
-  background: var(--color-bg-sidebar-project);
+}
+.project-info {
+  padding: var(--padding-tiny);
+  background-color: var(--color-bg-about);
+}
+.back-link {
+  padding: var(--padding-small);
+  padding-left: var(--padding-tiny);
 }
 
 /* Container for project images with center alignment */
@@ -1175,7 +1188,7 @@ a.nav-link-primary:hover {
 .col-2,
 .col-4 {
   width: 100%;
-  padding: var(--padding-small);
+  /* padding: var(--padding-small); */
 }
 
 /* Project image styling */
@@ -1190,9 +1203,6 @@ a.nav-link-primary:hover {
 .project-details {
   width: 100%;
   padding: var(--padding-small);
-  background: var(
-    --color-gradient-project-details
-  ); /* TODO: Remove gradient background if you prefer a simpler design */
 }
 
 /* Previous/Next Arrow Styles */
@@ -1493,10 +1503,11 @@ to keep your styles reusable and consistent.
 
   /* Work Page Grid for Large Devices */
 
-  .grid {
+  /* .grid {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 1rem;
-  }
+    border: 2px solid yellowgreen;
+  } */
 
   /* Grayscale filter with full-colour on hover and tap */
 
@@ -1510,7 +1521,6 @@ to keep your styles reusable and consistent.
   }
 
   /* Padding around work grid and project page */
-
   .portfolio,
   .project-wrapper,
   .work-sidebar-wrapper {
@@ -1518,7 +1528,6 @@ to keep your styles reusable and consistent.
   }
 
   /* Project Page Flex Direction on Large Devices */
-
   .project-wrapper,
   .work-sidebar-wrapper {
     flex-direction: row;
@@ -1533,18 +1542,17 @@ to keep your styles reusable and consistent.
   /* Sidebar on Large Devices */
 
   .project-aside {
-    width: 35%;
-    height: 80vh;
+    width: 25%;
+    height: 90vh;
     position: -webkit-sticky;
     position: sticky;
-    top: 8rem;
-    padding-right: 2rem;
+    top: 0rem;
   }
 
   /* Main Project Image Area on Large Devices */
 
   .project-details {
-    width: 65%;
+    width: 75%;
   }
 
   .project-image-container,
@@ -1630,40 +1638,36 @@ to keep your styles reusable and consistent.
   }
 
   /* Work Sidebar on Large Devices */
-
   .work-sidebar {
     width: 25%;
-    height: 80vh;
+    height: 95vh;
     position: -webkit-sticky;
     position: sticky;
     top: 1rem;
   }
 
   /* Main Work Area on Large Devices */
-
   .work-details {
     width: 75%;
   }
 }
 
 /* X-Large devices (large desktops, 1200px and up)*/
-
 @media (min-width: 1200px) {
   /* TODO: Add styles here for X-large devices. */
 
-  .grid {
+  /* .grid {
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  }
+  } */
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
-
 @media (min-width: 1400px) {
   /* TODO: Add styles here for XX-large devices. */
 
-  .grid {
+  /* .grid {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  }
+  } */
 }
 
 /*
