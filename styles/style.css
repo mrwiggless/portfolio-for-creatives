@@ -107,18 +107,19 @@
   --font-family-heading: "Lora", serif;
   --font-family-project-title: "Lora", serif;
   /* Core Colours */
-  --color-1: #140600;
-  --color-2: #271200;
-  --color-3: #47311e;
-  --color-4: #594633;
-  --color-5: #766653;
-  --color-6: #8c7e6d;
-  --color-7: #a99c8a;
-  --color-8: #c2b5a2;
-  --color-9: #dfd2bf;
+  --color-1: #150502;
+  --color-2: #24130d;
+  --color-3: #402e28;
+  --color-4: #57463f;
+  --color-5: #74655d;
+  --color-6: #8b7e73;
+  --color-7: #a89c8d;
+  --color-8: #c6baaa;
+  --color-9: #e4d7c5;
   --color-10: #f9edd9;
   --color-light-green: #25a969;
-  --color-dark-green: #005d42;
+  --color-mid-green: #17865b;
+  --color-dark-green: #0d6a4c;
 
   /* font sizes */
   --font-1: 1rem;
@@ -329,7 +330,7 @@ h1 {
   line-height: 1.1;
   margin-bottom: 1rem;
   font-weight: 800;
-  color: var(--color-4);
+  color: var(--color-3);
 }
 
 h2 {
@@ -337,7 +338,7 @@ h2 {
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: var(--color-4);
+  color: var(--color-3);
 }
 
 h3 {
@@ -567,7 +568,6 @@ a:active {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background: transparent; /* Background color for the sidebar */
   padding-top: var(--padding-medium);
   padding-bottom: var(--padding-medium);
 }
@@ -615,13 +615,14 @@ a:active {
 
 /* Project container for background and padding */
 .project-container {
-  background: var(--color-10); /* Set project background color */
+  background: var(--color-9); /* Set project background color */
   outline: 0px solid var(--color-4);
   /* padding: var(--padding-medium); */
+  transition: 0.1s;
 }
 .project-container:hover {
   text-decoration: none; /*prevents underlinging project*/
-  outline: 3px solid var(--color-4);
+  outline: 4px solid var(--color-4);
   transition: 0.2s;
 }
 .project-container:focus {
@@ -639,6 +640,7 @@ a:active {
 /* Optional container for future overlay customization */
 .project-details {
   padding: var(--padding-small);
+  padding-top: var(--padding-tiny);
   /* Placeholder: no custom styles yet */
 }
 
@@ -668,6 +670,7 @@ a:active {
 .sidebar-nav-item {
   flex: auto;
   padding: var(--padding-small);
+  background-color: var(--color-9);
   outline: 2px solid var(--color-4);
   margin-bottom: 1rem; /* Space between each navigation item */
 }
@@ -679,7 +682,7 @@ a:active {
 
 /* Individual navigation item styles */
 .sidebar-nav-item:hover {
-  background-color: var(--color-9);
+  background-color: var(--color-8);
 }
 /* Individual navigation item styles */
 .sidebar-nav-item:focus {
@@ -708,7 +711,7 @@ a:active {
   grid-template-columns: 1fr; /* Single column layout for mobile and smaller screens */
   grid-gap: 3rem; /* Space between grid items */
   background: var(--color-9); /* Background color for the section */
-  padding: var(--padding-small); /* Padding around the grid */
+  padding: var(--padding-medium); /* Padding around the grid */
   flex: 1; /* Flex-grow to take up available space */
 }
 
@@ -716,6 +719,7 @@ a:active {
 .about-grid-image {
   grid-column: 1 / 2; /* Image spans the first column */
   grid-row: 1 / 2; /* Image spans the first row */
+  transform: rotate(-2deg);
 }
 
 /* Text section in the About page grid */
@@ -872,10 +876,18 @@ a:active {
   flex-direction: column;
 }
 
-.back-link h4 {
-  padding-left: var(--padding-small);
-  padding-top: var(--padding-medium);
-  padding-bottom: var(--padding-medium);
+.back-link {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: var(--padding-small);
+  border: 2px solid var(--color-4);
+  margin-bottom: var(--padding-medium);
+  background-color: var(--color-9);
+}
+
+.project-navigation {
+  font-size: var(--font-3);
+  line-height: 1.2;
 }
 
 /* Container for project images with center alignment */
@@ -894,6 +906,7 @@ a:active {
   justify-content: flex-start;
   flex-direction: column;
   padding: var(--padding-small);
+  padding-left: 0;
   width: 100%;
   margin-bottom: 1rem; /* Space below the description */
 }
@@ -918,6 +931,8 @@ a:active {
 .project-details {
   width: 100%;
   padding: var(--padding-small);
+  padding-top: var(--padding-tiny);
+  padding-bottom: var(--padding-tiny);
 }
 
 /* Previous/Next Arrow Styles */
@@ -942,6 +957,20 @@ a:active {
 
 .arrow {
   padding: 0;
+}
+
+#lightbox {
+  display: flex;
+  flex-direction: column;
+
+  .lb-dataContainer {
+    order: 0;
+    margin-bottom: 10px;
+  }
+
+  .lb-outerContainer {
+    order: 1;
+  }
 }
 
 /*
@@ -1106,10 +1135,6 @@ a:active {
 
   /* Main Project Image Area on Large Devices */
 
-  .project-details {
-    width: 75%;
-  }
-
   .project-image-container,
   .project-description-container {
     flex-direction: row;
@@ -1195,11 +1220,12 @@ a:active {
   /* Work Sidebar on Large Devices */
   .work-sidebar {
     width: 25%;
-    height: 95vh;
+    height: 93vh;
     position: -webkit-sticky;
     position: sticky;
     top: var(--padding-medium);
     padding: 0 var(--padding-medium) 0 0;
+    bottom: 0;
   }
 
   /* Main Work Area on Large Devices */
