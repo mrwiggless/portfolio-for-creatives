@@ -104,7 +104,7 @@ After making these changes, visit your live site to see the changes in action!
 | ------------------------- | ---------------------------------------------- |
 | `index.html`              | Holding page (optional intro/splash)           |
 | `work.html`               | Classic work grid layout                       |
-| `work-sidebar.html`       | Work grid with sticky sidebar navigation       |
+| `index.html`              | Work grid with sticky sidebar navigation       |
 | `work-titles-below.html`  | Project titles below thumbnails                |
 | `work-clean.html`         | Clean version with no overlays                 |
 | `work-grayscale.html`     | Grayscale image filter variation               |

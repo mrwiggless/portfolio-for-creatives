@@ -35,10 +35,10 @@
 /* space grotesk font */
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
-/*lora font */
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
-/* line seed jp font */
-@import url("https://fonts.googleapis.com/css2?family=LINE+Seed+JP&display=swap");
+/*besley font */
+@import url("https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&display=swap");
+/* national parks font */
+@import url("https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap");
 /*
 
 /* 
@@ -103,9 +103,9 @@
 
 :root {
   /* Typography */
-  --font-family-body: "LINE seed JP", serif;
-  --font-family-heading: "Lora", serif;
-  --font-family-project-title: "Lora", serif;
+  --font-family-body: "National Park", serif;
+  --font-family-heading: "Besley", serif;
+  --font-family-project-title: "Besley", serif;
   /* Core Colours */
   --color-1: #150502;
   --color-2: #24130d;
@@ -935,6 +935,9 @@ a:active {
   justify-content: center;
   margin-bottom: 1rem;
 }
+.super-skinny-image img {
+  width: 50%;
+}
 /* Project details section */
 .project-details {
   width: 100%;
@@ -1029,6 +1032,10 @@ a:active {
 
 .error-page-animation {
   width: 25rem;
+}
+
+.huge-title {
+  font-size: 10rem;
 }
 
 /*
@@ -1149,6 +1156,9 @@ a:active {
   }
   .skinny-image {
     width: 60%;
+  }
+  .super-skinny-image img {
+    width: 30%;
   }
 
   .section-container {
