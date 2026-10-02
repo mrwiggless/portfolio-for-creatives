@@ -689,6 +689,10 @@ a:active {
   outline: 5px solid var(--color-light-green);
 }
 
+.nav-branding-logo {
+  width: 13rem;
+}
+
 /* 
 
  █████  ██████   ██████  ██    ██ ████████ 
@@ -880,7 +884,7 @@ a:active {
   display: inline-block;
   margin-bottom: 0;
   padding: var(--padding-small);
-  border: 2px solid var(--color-4);
+  border: 2px solid var(--color-8);
   margin-bottom: var(--padding-medium);
   background-color: var(--color-9);
 }
@@ -1127,7 +1131,7 @@ a:active {
 
   .project-aside {
     width: 25%;
-    height: 90vh;
+    height: 80vh;
     position: -webkit-sticky;
     position: sticky;
     top: 0rem;
@@ -1137,7 +1141,7 @@ a:active {
 
   .project-image-container,
   .project-description-container {
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .section-container {
