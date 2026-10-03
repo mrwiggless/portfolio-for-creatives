@@ -360,9 +360,10 @@ h5 {
 }
 
 h6 {
-  font-size: var(--font-2);
+  font-size: var(--font-1);
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: var(--color-6);
 }
 
 /* ------------------------------------------------------------------ */
@@ -546,6 +547,8 @@ a:active {
 .logo-header {
   width: 6rem;
   padding-bottom: var(--padding-small);
+  align-self: center;
+  width: fit-content;
 }
 
 /* Work wrapper (takes up available space) */
@@ -557,7 +560,7 @@ a:active {
 .project-wrapper,
 .work-sidebar-wrapper {
   padding: var(
-    --padding-tiny
+    --padding-small
   ); /* Padding to keep content from touching edges */
 }
 
@@ -566,19 +569,18 @@ a:active {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: var(--padding-medium);
-  padding-bottom: var(--padding-medium);
+  padding-top: var(--padding-tiny);
+  padding-bottom: var(--padding-large);
 }
 
 .work-links {
   flex: 1;
   align-items: flex-end;
+  justify-content: space-between;
+  padding: var(--padding-tiny);
+  padding-top: var(--padding-medium);
   display: flex;
   flex-direction: row;
-  padding: var(--padding-tiny);
-}
-.work-links a {
-  margin-right: 1rem;
 }
 
 /* Main Work Area with Sidebar on Mobile */
@@ -603,7 +605,6 @@ a:active {
   width: 100%;
   height: auto;
   position: relative; /* Needed to position the overlay */
-  border: 2px solid var(--color-4);
 }
 /* Masonry Overlay Text */
 .overlay-container:hover .overlay {
@@ -612,8 +613,11 @@ a:active {
 
 /* Project container for background and padding */
 .project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   background: var(--color-9); /* Set project background color */
-  outline: 0px solid var(--color-4);
+  outline: 2px solid var(--color-3);
   /* padding: var(--padding-medium); */
   transition: 0.1s;
 }
@@ -636,11 +640,22 @@ a:active {
   opacity: 1; /* Set opacity on hover */
 }
 
-/* Optional container for future overlay customization */
 .project-details {
   padding: var(--padding-small);
   padding-top: var(--padding-tiny);
-  /* Placeholder: no custom styles yet */
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.project-details h6,
+.project-details h1,
+.project-details p {
+  margin-bottom: var(--padding-tiny);
+}
+.project-details p {
+  font-size: var(--font-2);
 }
 
 /*
@@ -661,8 +676,24 @@ a:active {
 /* -------------------------------------------------------------------------- */
 
 /* Sidebar navigation list styles */
+
+.sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-small);
+}
+
 .sidebar-nav-list li {
   display: flex;
+  position: relative;
+  left: 0rem;
+  transition: 0.1s ease-out;
+}
+
+.sidebar-nav-list li:hover {
+  position: relative;
+  left: 0.3rem;
+  transition: 0.1s ease-out;
 }
 
 /* Individual navigation item styles */
@@ -670,19 +701,21 @@ a:active {
   flex: auto;
   padding: var(--padding-small);
   background-color: var(--color-9);
-  outline: 2px solid var(--color-4);
-  margin-bottom: 1rem; /* Space between each navigation item */
+  outline: 2px solid var(--color-6);
   text-decoration: none;
 }
 /* Individual navigation item styles */
 .sidebar-nav-item.selected {
-  background-color: var(--color-8);
-  outline: 2px solid var(--color-5);
+  background-color: var(--color-10);
+  outline: 2px solid var(--color-8);
+}
+a.sidebar-nav-item.selected {
+  color: var(--color-4);
 }
 
 /* Individual navigation item styles */
 .sidebar-nav-item:hover {
-  background-color: var(--color-8);
+  background-color: var(--color-10);
 }
 /* Individual navigation item styles */
 .sidebar-nav-item:focus {
@@ -691,6 +724,21 @@ a:active {
 
 .nav-branding-logo {
   width: 13rem;
+}
+
+/* ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE
+ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE
+ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE
+ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE
+ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE */
+
+.archive-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-medium);
+}
+.archive-links a {
+  font-size: var(--font-3);
 }
 
 /* 
@@ -881,18 +929,27 @@ a:active {
 }
 
 .back-link {
-  display: inline-block;
-  margin-bottom: 0;
-  padding: var(--padding-small);
-  border: 2px solid var(--color-8);
-  margin-bottom: var(--padding-medium);
-  background-color: var(--color-9);
-  text-decoration: none;
+  display: flex;
+  gap: var(--padding-tiny);
+  align-items: center;
+  max-width: fit-content;
+  margin-bottom: var(--padding-small);
 }
 
 .project-navigation {
   font-size: var(--font-2);
   line-height: 1.2;
+}
+
+.project-page-title {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding-bottom: var(--padding-small);
+}
+.project-page-title h1 {
+  font-size: 2.2rem;
+  margin-bottom: var(--padding-tiny);
 }
 
 /* Container for project images with center alignment */
@@ -915,8 +972,19 @@ a:active {
   width: 100%;
   margin-bottom: 1rem; /* Space below the description */
 }
+.project-description-container a::before {
+  content: url("/assets/images/star-solid-full.svg");
+  display: inline-block;
+  position: relative;
+  top: 0.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.3rem;
+}
 .project-description-container a {
+  font-size: var(--font-3);
   margin-bottom: var(--padding-small);
+  margin-top: var(--padding-small);
 }
 
 /* Column styles for one-column, two-column and four-column layouts (mobile-first) */
@@ -1109,6 +1177,19 @@ a:active {
     padding: var(--padding-small);
   }
 
+  .logo-header {
+    align-self: left;
+    width: fit-content;
+  }
+
+  .work-links {
+    justify-content: left;
+    padding: 0;
+  }
+  .work-links a {
+    margin-right: var(--padding-medium);
+  }
+
   /* Grayscale filter with full-colour on hover and tap */
 
   .work-page-grid-item a.grayscale img {
@@ -1149,6 +1230,18 @@ a:active {
   }
 
   /* Main Project Image Area on Large Devices */
+
+  .project-page-title {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .project-page-title h1 {
+    font-size: 3rem;
+  }
+
+  .back-link {
+    margin-bottom: var(--padding-medium);
+  }
 
   .project-image-container,
   .project-description-container {
