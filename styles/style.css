@@ -679,13 +679,15 @@ a:active {
 
 .sidebar-nav-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   gap: var(--padding-small);
 }
 
 .sidebar-nav-list li {
   display: flex;
   position: relative;
+  width: stretch;
   left: 0rem;
   transition: 0.1s ease-out;
 }
@@ -702,6 +704,7 @@ a:active {
   padding: var(--padding-small);
   background-color: var(--color-9);
   outline: 2px solid var(--color-6);
+  text-align: center;
   text-decoration: none;
 }
 /* Individual navigation item styles */
@@ -1178,16 +1181,19 @@ ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE 
   }
 
   .logo-header {
-    align-self: left;
     width: fit-content;
   }
 
-  .work-links {
-    justify-content: left;
-    padding: 0;
+  .sidebar-nav-list {
+    flex-direction: column;
   }
-  .work-links a {
-    margin-right: var(--padding-medium);
+  .sidebar-nav-item {
+    text-align: left;
+  }
+
+  .work-links {
+    padding-left: var(--padding-small);
+    padding-right: var(--padding-small);
   }
 
   /* Grayscale filter with full-colour on hover and tap */
@@ -1217,16 +1223,6 @@ ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE 
 
   .project-wrapper-full-width {
     padding: var(--padding-small);
-  }
-
-  /* Sidebar on Large Devices */
-
-  .project-aside {
-    width: 25%;
-    height: 80vh;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0rem;
   }
 
   /* Main Project Image Area on Large Devices */
@@ -1333,7 +1329,7 @@ ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE 
 
   /* Work Sidebar on Large Devices */
   .work-sidebar {
-    width: 25%;
+    width: 30rem;
     height: 93vh;
     position: -webkit-sticky;
     position: sticky;
@@ -1344,7 +1340,7 @@ ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE ARCHIVE 
 
   /* Main Work Area on Large Devices */
   .page-contents {
-    width: 75%;
+    /* width: 75%; */
   }
 }
 
